@@ -1,0 +1,24 @@
+{
+  "name": "backend-with-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jl-molina/Backend-with-Node.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "ecmascript",
+    "node.js"
+  ],
+  "author": "Jose Luis Molina <joseluisml1218@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jl-molina/Backend-with-Node.js/issues"
+  },
+  "homepage": "https://github.com/jl-molina/Backend-with-Node.js#readme"
+}
