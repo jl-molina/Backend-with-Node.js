@@ -1,37 +1,10 @@
 const express = require('express');
-const faker = require('faker');
+const routerApi = require('./routes');
 const app = express();
 const port = 3000;
 const products = [];
 
-
-for (let i = 0; i < 100; i++) {
-    products.push({
-        id: i,
-        name: faker.commerce.productName(),
-        price: parseInt(faker.commerce.price(), 10),
-        image: faker.image.imageUrl()
-    })
-}
-
 app.get('/', ((req, res) => res.send('Hello world')));
-
-app.get('/products', ((req, res) => {
-    const { id } = req.query;
-    if (id) {
-        res.json(products[id]);
-    } else {
-        res.json(products);
-    }
-}));
-
-app.get('/products/filter', (req, res) => res.send('Filter'));
-
-app.get('/products/:id', (req, res) => {
-    const { id } = req.params;
-    res.json(products[id]);
-});
-
 
 app.get('/categories/:id/products/:productID', ((req, res) => {
     const { id, productID } = req.params;
@@ -49,5 +22,7 @@ app.get('/users', (req, res) => {
         res.send('No args');
     }
 })
+
+routerApi(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
