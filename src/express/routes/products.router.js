@@ -11,10 +11,14 @@ router.get('/', (req, res) => {
 
 router.get('/filter', (req, res) => res.send('Filter'));
 
-router.get('/:id', (req, res) => {
-    const { id } = req.params;
-    const product = service.findOne(id);
-    product ? res.json(product) : res.status(404).json({message: 'Not found'});
+router.get('/:id', (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const product = service.findOne(id);
+        res.json(product);
+    } catch (error) {
+        next(error);
+    }
 });
 
 router.post('/', (req, res) => {
